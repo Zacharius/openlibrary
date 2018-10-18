@@ -32,6 +32,8 @@ $if user:
 $ borrow_link = page.url() + '/borrow'
 
 $if user_loan:
+    $if user_loan['expiry']:
+        $:macros.FormatExpiry(user_loan['expiry'])
     <p>
       <a href="$borrow_link" title="Borrow from $contributor"
          data-userid="$(user_loan['userid'])" id="read_ebook"
